@@ -8,16 +8,17 @@ namespace OrderingApi.Services
 {
     public class OrderNumbersService : IOrderNumbersService
     {
-        public OrderNumbersService()
+        private readonly ISortingService _sortingService;
+        public OrderNumbersService(ISortingService sortingService)
         {
-
+            _sortingService = sortingService;
         }
 
         public List<int> SortListOfNumbers(List<int> list)
         {
-            Console.WriteLine("works List!!");
+            var sortedList = _sortingService.SortWithQuickSort(list);
             SaveToFile(list);
-            return new List<int>(new int[] { 9, 9, 9 });
+            return sortedList;
         }
 
 

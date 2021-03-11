@@ -31,6 +31,7 @@ namespace OrderingApi
 
             services.AddControllers();
             services.AddScoped<IOrderNumbersService, OrderNumbersService>();
+            services.AddScoped<ISortingService, SortingService>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "OrderingApi", Version = "v1" });
