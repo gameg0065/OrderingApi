@@ -7,8 +7,7 @@ namespace OrderingApi.Services
     public class SortingService : ISortingService
     {
         public SortingService()
-        {
-        }
+        { }
 
 
         public List<int> SortWithBubbleSort(List<int> list)

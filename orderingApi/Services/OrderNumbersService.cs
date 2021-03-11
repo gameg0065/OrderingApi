@@ -16,8 +16,14 @@ namespace OrderingApi.Services
 
         public List<int> SortListOfNumbers(List<int> list)
         {
+            var watch = System.Diagnostics.Stopwatch.StartNew();
+
             var sortedList = _sortingService.SortWithQuickSort(list);
-            SaveToFile(list);
+
+            watch.Stop();
+            var elapsedMs = watch.ElapsedMilliseconds;
+
+            SaveToFile(sortedList);
             return sortedList;
         }
 
