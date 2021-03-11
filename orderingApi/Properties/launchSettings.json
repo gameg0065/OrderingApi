@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "orderingApi": {
+    "OrderingApi": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

@@ -11,8 +11,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using OrderingApi.Services;
+using OrderingApi.Services.Interfaces;
 
-namespace orderingApi
+namespace OrderingApi
 {
     public class Startup
     {
@@ -28,9 +30,10 @@ namespace orderingApi
         {
 
             services.AddControllers();
+            services.AddScoped<IOrderNumbersService, OrderNumbersService>();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "orderingApi", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "OrderingApi", Version = "v1" });
             });
         }
 
@@ -41,7 +44,7 @@ namespace orderingApi
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "orderingApi v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "OrderingApi v1"));
             }
 
             app.UseHttpsRedirection();

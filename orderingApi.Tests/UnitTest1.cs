@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace orderingApi.Tests
+namespace OrderingApi.Tests
 {
     public class UnitTest1
     {
