@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using OrderingApi.Services.Interfaces;
-using System;
 
 namespace OrderingApi.Services
 {
@@ -42,7 +41,7 @@ namespace OrderingApi.Services
                 while (j >= 0 && temp < list[j])
                 {
                     list[j + 1] = list[j];
-                    j = j - 1;
+                    j -= 1;
                 }
                 list[j + 1] = temp;
             }
@@ -61,11 +60,11 @@ namespace OrderingApi.Services
                     while (j >= gap && list[j - gap] > temp)
                     {
                         list[j] = list[j - gap];
-                        j = j - gap;
+                        j -= gap;
                     }
                     list[j] = temp;
                 }
-                gap = gap / 2;
+                gap /= 2;
             }
 
             return list;
@@ -92,7 +91,7 @@ namespace OrderingApi.Services
             var temp1 = list[i + 1];
             list[i + 1] = list[high];
             list[high] = temp1;
-            return i + 1;
+            return (i + 1);
         }
 
         private List<int> QuickSort(List<int> list, int low, int high)

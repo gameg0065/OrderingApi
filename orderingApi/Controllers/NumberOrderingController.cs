@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OrderingApi.Services.Interfaces;
 using System;
@@ -21,15 +20,36 @@ namespace OrderingApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<string> Sort(string numbers)
+        public IActionResult Sort(string numbers)
         {
-            return _service.SortListOfNumbers(numbers);
+            if (String.IsNullOrEmpty(numbers))
+            {
+                throw new ArgumentException("String is empty", nameof(numbers));
+            }
+
+            return Ok(_service.SortListOfNumbers(numbers));
+        }
+
+        [HttpPost("measure")]
+        public IActionResult MeasureSort(string numbers)
+        {
+            if (String.IsNullOrEmpty(numbers))
+            {
+                throw new ArgumentException("String is empty", nameof(numbers));
+            }
+
+            return Ok(_service.MeasureSortListOfNumbers(numbers));
         }
 
         [HttpGet]
         public ActionResult<string> Get()
         {
-            return _service.GetLastResult();
+            var result = _service.GetLastResult();
+            if (String.IsNullOrEmpty(result))
+            {
+                throw new InvalidOperationException("Return is empty");
+            }
+            return result;
         }
     }
 }

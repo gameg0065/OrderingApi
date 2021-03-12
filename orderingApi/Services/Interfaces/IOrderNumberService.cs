@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using OrderingApi.Models;
 
 
 namespace OrderingApi.Services.Interfaces
@@ -7,6 +7,7 @@ namespace OrderingApi.Services.Interfaces
     {
         string GetLastResult();
         string SortListOfNumbers(string numbersToSort);
+        SortingMeasureModel MeasureSortListOfNumbers(string numbersToSort);
 
     }
 }

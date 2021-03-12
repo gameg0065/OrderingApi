@@ -12,13 +12,27 @@ namespace OrderingApi.Services
 
         public void SaveToFile(string sortedList)
         {
-            File.WriteAllTextAsync("result.txt", sortedList);
+            try
+            {
+                File.WriteAllTextAsync("result.txt", sortedList);
+            }
+            catch (FileNotFoundException e)
+            {
+                throw new FileNotFoundException("Error writing file", e);
+            }
         }
 
         public string ReadFromFile()
         {
-            var textFromFile = File.ReadAllText(@"result.txt");
-            return textFromFile;
+            try
+            {
+                var textFromFile = File.ReadAllText(@"result.txt");
+                return textFromFile;
+            }
+            catch (FileNotFoundException e)
+            {
+                throw new FileNotFoundException("Error reading file", e);
+            }
         }
 
     }
