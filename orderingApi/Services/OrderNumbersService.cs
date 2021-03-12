@@ -14,8 +14,10 @@ namespace OrderingApi.Services
             _sortingService = sortingService;
         }
 
-        public List<int> SortListOfNumbers(List<int> list)
+        public string SortListOfNumbers(string numbersToSort)
         {
+            var list = TextHelper.ConvertStringToArray(numbersToSort);
+
             var watch = System.Diagnostics.Stopwatch.StartNew();
 
             var sortedList = _sortingService.SortWithQuickSort(list);
@@ -23,26 +25,28 @@ namespace OrderingApi.Services
             watch.Stop();
             var elapsedMs = watch.ElapsedMilliseconds;
 
-            SaveToFile(sortedList);
-            return sortedList;
+            var sortedListAsString = TextHelper.ConvertListToString(sortedList);
+
+            SaveToFile(sortedListAsString);
+
+            return sortedListAsString;
         }
 
 
-        public List<int> GetLastResult()
+        public string GetLastResult()
         {
             return ReadFromFile();
         }
 
-        private void SaveToFile(List<int> sortedList)
+        private void SaveToFile(string sortedList)
         {
-            File.WriteAllTextAsync("result.txt", JsonHelper.CreateJsonString(sortedList));
+            File.WriteAllTextAsync("result.txt", sortedList);
         }
 
-        private List<int> ReadFromFile()
+        private string ReadFromFile()
         {
             var textFromFile = File.ReadAllText(@"result.txt");
-            var list = JsonHelper.DeserializeJsonToIntList(textFromFile);
-            return list;
+            return textFromFile;
         }
 
     }

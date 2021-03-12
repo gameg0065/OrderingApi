@@ -5,8 +5,8 @@ namespace OrderingApi.Services.Interfaces
 {
     public interface IOrderNumbersService
     {
-        List<int> GetLastResult();
-        List<int> SortListOfNumbers(List<int> list);
+        string GetLastResult();
+        string SortListOfNumbers(string numbersToSort);
 
     }
 }

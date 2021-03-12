@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using OrderingApi.Services.Interfaces;
+using System;
 
 namespace OrderingApi.Controllers
 {
@@ -20,13 +21,13 @@ namespace OrderingApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<List<int>> Sort(List<int> listOfNumbers)
+        public ActionResult<string> Sort(string numbers)
         {
-            return _service.SortListOfNumbers(listOfNumbers);
+            return _service.SortListOfNumbers(numbers);
         }
 
         [HttpGet]
-        public ActionResult<List<int>> Get()
+        public ActionResult<string> Get()
         {
             return _service.GetLastResult();
         }
