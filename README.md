@@ -4,7 +4,11 @@ Design to sort and save to file given numbers.
 
 ## How it works:
 
-- We have 3 enpdoints:
+- We have 4 enpdoints:
+
+## Swagger
+
+`swagger` [/swagger/index.html](#/swagger/index.html) <br/>
 
 ## GET
 
