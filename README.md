@@ -16,7 +16,7 @@ Design to sort and save to file given numbers.
 
 ## POST
 
-`post numbers` [/api?numbers=1 2 3](#/api?numbers=1 2 3) <br/>
+`post numbers` [/api?numbers=1 2 3](#/api?numbers=123) <br/>
 
 - Input:
 
@@ -30,7 +30,7 @@ Design to sort and save to file given numbers.
     1 2 5 8 10
 ```
 
-`post numbers and measure performance` [/api/measure?numbers=1 2 3](#/api/measure?numbers=1 2 3) <br/>
+`post numbers and measure performance` [/api/measure?numbers=1 2 3](#/api/measure?numbers=123) <br/>
 
 - Input:
 
