@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OrderingApi", "OrderingApi\OrderingApi.csproj", "{2F7047FE-6C9C-40EC-B95E-9772507ED04D}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderingApi.Tests", "OrderingApi.Tests\OrderingApi.Tests.csproj", "{53BB7047-F014-4070-A5ED-65D769B256B9}"
 EndProject
 Global
