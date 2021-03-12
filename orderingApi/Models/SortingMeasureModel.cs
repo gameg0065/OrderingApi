@@ -9,6 +9,6 @@ namespace OrderingApi.Models
         public long InsertionSortTime { get; set; }
         public long ShellSortTime { get; set; }
         public long QuickSortTime { get; set; }
-        public string result { get; set; }
+        public string Result { get; set; }
     }
 }

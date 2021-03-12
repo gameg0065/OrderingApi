@@ -34,40 +34,32 @@ namespace OrderingApi.Services
 
 
             var watch = System.Diagnostics.Stopwatch.StartNew();
-
             _sortingService.SortWithBubbleSort(list);
-
             watch.Stop();
             sortingMeasureModel.BubbleSortTime = watch.ElapsedMilliseconds;
 
+
             watch = System.Diagnostics.Stopwatch.StartNew();
-
             _sortingService.SortWithInsertionSort(list);
-
             watch.Stop();
             sortingMeasureModel.InsertionSortTime = watch.ElapsedMilliseconds;
 
+
             watch = System.Diagnostics.Stopwatch.StartNew();
-
             _sortingService.SortWithShellSort(list);
-
             watch.Stop();
             sortingMeasureModel.ShellSortTime = watch.ElapsedMilliseconds;
 
+
             watch = System.Diagnostics.Stopwatch.StartNew();
-
             var sortedList = _sortingService.SortWithQuickSort(list);
-
             watch.Stop();
             sortingMeasureModel.QuickSortTime = watch.ElapsedMilliseconds;
 
 
+            sortingMeasureModel.Result = TextHelper.ConvertListToString(sortedList);
 
-            var sortedListAsString = TextHelper.ConvertListToString(sortedList);
-
-            _fileService.SaveToFile(sortedListAsString);
-
-            sortingMeasureModel.result = sortedListAsString;
+            _fileService.SaveToFile(sortingMeasureModel.Result);
 
             return sortingMeasureModel;
         }
